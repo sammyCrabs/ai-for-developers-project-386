@@ -6,3 +6,6 @@ frontend/src/client
 .github
 .idea
 *.log
+.claude
+skills-lock.json
+docs

@@ -24,3 +24,19 @@
 - `backend/src/generated/` и `frontend/src/client/` генерируются и не хранятся в git — руками не править.
 - TypeScript закреплён на 5.x: openapi-typescript и @hey-api/openapi-ts не работают с TypeScript 7.
 - Новые проверки добавляйте в `mise run check`, а не отдельным шагом CI.
+
+## Agent skills
+
+Инженерные скиллы [mattpocock/skills](https://github.com/mattpocock/skills) установлены в `.claude/skills/`, версии зафиксированы в `skills-lock.json`. Восстановить: `npx skills@latest experimental_install`. В новой сессии сначала прочитайте этот файл, затем задачу из трекера и записанные решения.
+
+### Issue tracker
+
+GitHub Issues в `sammyCrabs/ai-for-developers-project-386`, работа через `gh`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Метки по умолчанию: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: словарь в `GLOSSARY.md` в корне, решения в `docs/adr/`. See `docs/agents/domain.md`.
