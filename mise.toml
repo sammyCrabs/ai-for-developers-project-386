@@ -34,7 +34,7 @@ run = "pnpm -r --filter=!@call-calendar/contract typecheck"
 [tasks.test]
 description = "Run tests"
 depends = ["gen"]
-run = "pnpm --filter @call-calendar/backend test"
+run = "pnpm -r --filter=!@call-calendar/contract test"
 
 [tasks.build]
 description = "Build backend and frontend"
