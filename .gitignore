@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+.idea/
+.DS_Store
+*.log
+# generated from contract (mise run gen)
+backend/src/generated/
+frontend/src/client/

@@ -1,0 +1,63 @@
+[settings]
+experimental = true
+
+[tools]
+node = "24.22.3"
+pnpm = "12.21.0"
+hk = "2.13.0"
+pitchfork = "2.35.0"
+
+[hooks]
+postinstall = "pnpm install --frozen-lockfile"
+
+[tasks.install]
+description = "Install dependencies and git hooks"
+run = ["pnpm install --frozen-lockfile", "hk install --mise"]
+
+[tasks.gen]
+description = "TypeSpec -> OpenAPI -> backend types and frontend SDK"
+run = [
+  "pnpm --filter @call-calendar/contract build",
+  "pnpm --filter @call-calendar/backend gen",
+  "pnpm --filter @call-calendar/frontend gen",
+]
+
+[tasks.lint]
+description = "Run oxlint"
+run = "pnpm exec oxlint --deny-warnings"
+
+[tasks.typecheck]
+description = "Type-check backend and frontend"
+depends = ["gen"]
+run = "pnpm -r --filter=!@call-calendar/contract typecheck"
+
+[tasks.test]
+description = "Run tests"
+depends = ["gen"]
+run = "pnpm --filter @call-calendar/backend test"
+
+[tasks.build]
+description = "Build backend and frontend"
+depends = ["gen"]
+run = "pnpm -r --filter=!@call-calendar/contract build"
+
+[tasks.check]
+description = "All checks: lint, typecheck, tests"
+depends = ["lint", "typecheck", "test"]
+
+[tasks.dev]
+description = "Start backend and frontend as daemons"
+depends = ["gen"]
+run = "mise daemons start backend frontend"
+
+[tasks.stop]
+description = "Stop dev daemons"
+run = "mise daemons stop backend frontend"
+
+[daemons.backend]
+run = "exec pnpm --filter @call-calendar/backend dev"
+ready_port = 3000
+
+[daemons.frontend]
+run = "exec pnpm --filter @call-calendar/frontend dev --host 127.0.0.1 --port 5173 --strictPort"
+ready_port = 5173

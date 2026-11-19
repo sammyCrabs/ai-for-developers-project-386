@@ -1,0 +1,6 @@
+packages:
+  - contract
+  - backend
+  - frontend
+allowBuilds:
+  esbuild: true

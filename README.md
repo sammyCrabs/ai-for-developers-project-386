@@ -50,20 +50,32 @@
 
 ## Стек
 
-- Разное
+- Контракт: TypeSpec → OpenAPI, клиентский SDK — @hey-api/openapi-ts
+- Бекенд: Node.js, TypeScript, Fastify
+- Фронтенд: React, Vite, Mantine
+- Проверки: Vitest, oxlint, tsc; git-хуки — hk; окружение и задачи — mise
 
 ## Установка
 
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
+Нужен [mise](https://mise.jdx.dev/): он ставит Node, pnpm и остальные инструменты нужных версий.
 
 ```bash
 git clone https://github.com/sammyCrabs/ai-for-developers-project-386.git
 cd ai-for-developers-project-386
+mise trust
+mise install
+mise run install
 ```
 
 ## Использование
 
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
+```bash
+mise run dev     # бекенд http://127.0.0.1:3000, фронтенд http://127.0.0.1:5173
+mise run check   # линтер, проверка типов, тесты
+mise run stop
+```
+
+<!-- Добавьте запись asciinema — именно это смотрит работодатель -->
 
 ---
 

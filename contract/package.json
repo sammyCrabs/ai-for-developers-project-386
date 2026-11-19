@@ -1,0 +1,13 @@
+{
+  "name": "@call-calendar/contract",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsp compile ."
+  },
+  "devDependencies": {
+    "@typespec/compiler": "1.18.0",
+    "@typespec/http": "1.18.0",
+    "@typespec/openapi3": "1.18.0"
+  }
+}
