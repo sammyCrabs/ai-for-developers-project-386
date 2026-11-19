@@ -75,6 +75,13 @@ mise run check   # линтер, проверка типов, тесты
 mise run stop
 ```
 
+Production-образ (одним контейнером, порт из `PORT`, по умолчанию 8080):
+
+```bash
+docker build -t call-calendar .
+docker run --rm -p 8080:8080 call-calendar
+```
+
 <!-- Добавьте запись asciinema — именно это смотрит работодатель -->
 
 ---
